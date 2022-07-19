@@ -48,7 +48,7 @@ function playRound(playerSelection, computerSelection) {
 
 // Plays the game
 function game() {
-  let userInput = prompt("Whats your pick?");
+  let userInput = prompt("Rock, Paper, Scissor ?");
 
   // Evaluate
   if (
@@ -57,7 +57,7 @@ function game() {
     userInput.toLowerCase() != "scissor"
   ) {
     alert("Type Rock, Paper or Scissor");
-    return userInput.toLowerCase();
+    return game();
   }
 
   // Plays 5 round based on userInput
