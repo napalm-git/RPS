@@ -12,19 +12,37 @@ function getComputerChoice(rock, paper, scissor) {
 // Plays a single round
 function playRound(playerSelection, computerSelection) {
   switch (true) {
-    case playerSelection.toLowerCase() == "rock" && computerSelection == "rock":
-      console.log("its a draw");
+    // Draw Conditions
+    case (playerSelection.toLowerCase() == "rock" &&
+      computerSelection == "rock") ||
+      (playerSelection.toLowerCase() == "paper" &&
+        computerSelection == "paper") ||
+      (playerSelection.toLowerCase() == "scissor" &&
+        computerSelection == "scissor"):
+      console.log("Its a draw");
       break;
 
-    case playerSelection.toLowerCase() == "rock" &&
-      computerSelection == "paper":
+    // Rock win conditions
+    case (playerSelection.toLowerCase() == "rock" &&
+      computerSelection == "scissor") ||
+      (playerSelection.toLowerCase() == "scissor" &&
+        computerSelection == "rock"):
+      console.log("Rock wins");
+      break;
+
+    // Paper win conditions
+    case (playerSelection.toLowerCase() == "rock" &&
+      computerSelection == "paper") ||
+      (playerSelection.toLowerCase() == "paper" && computerSelection == "rock"):
       console.log("Paper wins");
       break;
 
-    case playerSelection.toLowerCase() == "rock" &&
-      computerSelection == "scissor":
-      console.log("Rock wins");
-      break;
+    // Scissor win conditions
+    case (playerSelection.toLowerCase() == "paper" &&
+      computerSelection == "scissor") ||
+      (playerSelection.toLowerCase() == "scissor" &&
+        computerSelection == "paper"):
+      console.log("Scissor wins");
   }
 }
 
@@ -33,7 +51,11 @@ function game() {
   let userInput = prompt("Whats your pick?");
 
   // Evaluate
-  if (userInput.toLowerCase() != "rock") {
+  if (
+    userInput.toLowerCase() != "rock" &&
+    userInput.toLowerCase() != "paper" &&
+    userInput.toLowerCase() != "scissor"
+  ) {
     alert("Type Rock, Paper or Scissor");
     return userInput.toLowerCase();
   }
