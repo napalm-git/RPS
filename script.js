@@ -12,28 +12,29 @@ function getComputerChoice(rock, paper, scissor) {
 // Plays a single round
 function playRound(playerSelection, computerSelection) {
   switch (true) {
-    case playerSelection == "Rock" && computerSelection == "Rock":
+    case playerSelection.toLowerCase() == "rock" && computerSelection == "rock":
       console.log("its a draw");
       break;
 
-    case playerSelection == "Rock" && computerSelection == "Paper":
+    case playerSelection.toLowerCase() == "rock" &&
+      computerSelection == "paper":
       console.log("Paper wins");
       break;
 
-    case playerSelection == "Rock" && computerSelection == "Scissor":
+    case playerSelection.toLowerCase() == "rock" &&
+      computerSelection == "scissor":
       console.log("Rock wins");
-      break;
-
-    default:
-      console.log("No one wins");
       break;
   }
 }
 
 // Plays the game
 function game() {
+  let userInput = prompt("Whats your pick?");
+
+  // Plays 5 round based on userInput1
   for (let i = 0; i < 5; i++) {
-    playRound("Rock", getComputerChoice("Rock", "Paper", "Scissor"));
+    playRound(userInput, getComputerChoice("rock", "paper", "scissor"));
   }
 }
 
