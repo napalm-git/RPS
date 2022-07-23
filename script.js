@@ -95,20 +95,18 @@ function playRound(playerSelection, computerSelection) {
   if (playerScore === 5) {
     playerScore = 0;
     cpuScore = 0;
-    alert("GAME OVER PLAYER WINS");
+    endGame.innerText = "GAME OVER PLAYER WINS";
   } else if (cpuScore === 5) {
     playerScore = 0;
     cpuScore = 0;
-    alert("GAME OVER CPU WINS");
+    endGame.innerText = "GAME OVER CPU WINS";
+  } else if (
+    (playerScore === 0 && cpuScore === 0) ||
+    (playerScore === 1 && cpuScore === 0) ||
+    (playerScore === 0 && cpuScore === 1)
+  ) {
+    endGame.innerText = "";
   }
-
-  // else if (
-  //   (playerScore === 0 && cpuScore === 0) ||
-  //   (playerScore === 1 && cpuScore === 0) ||
-  //   (playerScore === 0 && cpuScore === 1)
-  // ) {
-  //   return;
-  // }
 }
 
 // Plays the game
