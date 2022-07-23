@@ -1,3 +1,11 @@
+const container = document.querySelector(".container");
+const btnRock = document.querySelector(".btnRock");
+const btnPaper = document.querySelector(".btnPaper");
+const btnScissor = document.querySelector(".btnScissor");
+const p = document.querySelector(".p");
+
+container.appendChild(p);
+
 // Gets computers choice
 function getComputerChoice(rock, paper, scissor) {
   let arrayOfChoices = [rock, paper, scissor];
@@ -19,7 +27,7 @@ function playRound(playerSelection, computerSelection) {
         computerSelection == "paper") ||
       (playerSelection.toLowerCase() == "scissor" &&
         computerSelection == "scissor"):
-      console.log("Its a draw");
+      p.innerText = "Its a draw";
       break;
 
     // Rock win conditions
@@ -27,14 +35,14 @@ function playRound(playerSelection, computerSelection) {
       computerSelection == "scissor") ||
       (playerSelection.toLowerCase() == "scissor" &&
         computerSelection == "rock"):
-      console.log("Rock wins");
+      p.innerText = "Rock wins";
       break;
 
     // Paper win conditions
     case (playerSelection.toLowerCase() == "rock" &&
       computerSelection == "paper") ||
       (playerSelection.toLowerCase() == "paper" && computerSelection == "rock"):
-      console.log("Paper wins");
+      p.innerText = "Paper wins";
       break;
 
     // Scissor win conditions
@@ -42,28 +50,25 @@ function playRound(playerSelection, computerSelection) {
       computerSelection == "scissor") ||
       (playerSelection.toLowerCase() == "scissor" &&
         computerSelection == "paper"):
-      console.log("Scissor wins");
+      p.innerText = "Scissor wins";
   }
 }
 
 // Plays the game
-function game() {
-  let userInput = prompt("Rock, Paper, Scissor ?");
+btnRock.addEventListener("click", () => {
+  let userInput = "rock";
 
-  // Evaluate
-  if (
-    userInput.toLowerCase() != "rock" &&
-    userInput.toLowerCase() != "paper" &&
-    userInput.toLowerCase() != "scissor"
-  ) {
-    alert("Type Rock, Paper or Scissor");
-    return game();
-  }
+  playRound(userInput, getComputerChoice("rock", "paper", "scissor"));
+});
 
-  // Plays 5 round based on userInput
-  for (let i = 0; i < 5; i++) {
-    playRound(userInput, getComputerChoice("rock", "paper", "scissor"));
-  }
-}
+btnPaper.addEventListener("click", () => {
+  let userInput = "paper";
 
-game();
+  playRound(userInput, getComputerChoice("rock", "paper", "scissor"));
+});
+
+btnScissor.addEventListener("click", () => {
+  let userInput = "scissor";
+
+  playRound(userInput, getComputerChoice("rock", "paper", "scissor"));
+});
