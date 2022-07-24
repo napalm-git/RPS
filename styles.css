@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: rgb(231, 216, 188);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  font-size: 42px;
+}
+
+.player-choice {
+  background-color: aqua;
+}
+
+.cpu-choice {
+  background-color: aquamarine;
+}
+
+.cpu-score {
+  background-color: beige;
+}
+
+.player-score {
+  background-color: cyan;
+}
+
+.result {
+  background-color: chartreuse;
+}
+
+.player-score,
+.cpu-score,
+.player-choice,
+.cpu-choice,
+.endGame,
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 370px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 2.2;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 20px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.btnRock,
+.btnPaper,
+.btnScissor {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: darkolivegreen;
+  color: #fff;
+}
+
+.btnRock:hover,
+.btnPaper:hover,
+.btnScissor:hover {
+  background-color: rgb(113, 143, 66);
+}
