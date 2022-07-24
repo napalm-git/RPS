@@ -4,10 +4,14 @@ const btnPaper = document.querySelector(".btnPaper");
 const btnScissor = document.querySelector(".btnScissor");
 const player = document.querySelector(".player-score");
 const cpu = document.querySelector(".cpu-score");
-const p = document.querySelector(".p");
+const playerChoice = document.querySelector(".player-choice");
+const cpuChoice = document.querySelector(".cpu-choice");
+const result = document.querySelector(".result");
 const endGame = document.querySelector(".endGame");
 
-container.appendChild(p);
+container.appendChild(playerChoice);
+container.appendChild(cpuChoice);
+container.appendChild(result);
 container.appendChild(player);
 container.appendChild(cpu);
 container.appendChild(endGame);
@@ -29,65 +33,92 @@ function getComputerChoice(rock, paper, scissor) {
 function playRound(playerSelection, computerSelection) {
   switch (true) {
     // Draw Conditions
-    case (playerSelection.toLowerCase() == "rock" &&
-      computerSelection == "rock") ||
-      (playerSelection.toLowerCase() == "paper" &&
-        computerSelection == "paper") ||
-      (playerSelection.toLowerCase() == "scissor" &&
-        computerSelection == "scissor"):
-      p.innerText = `PLAYER CHOICE: ${playerSelection}\n CPU CHOICE: ${computerSelection}\n IT'S A DRAW`;
-      player.innerText = `YOU: ${playerScore}`;
+    case playerSelection.toLowerCase() == "rock" && computerSelection == "rock":
+      playerChoice.innerText = `PLAYER CHOICE: 💎`;
+      cpuChoice.innerText = `CPU CHOICE: 💎`;
+      result.innerText = `ITS A DRAW`;
+      player.innerText = `PLAYER: ${playerScore}`;
+      cpu.innerText = `CPU: ${cpuScore}`;
+      break;
+
+    case playerSelection.toLowerCase() == "paper" &&
+      computerSelection == "paper":
+      playerChoice.innerText = `PLAYER CHOICE: 🧻`;
+      cpuChoice.innerText = `CPU CHOICE: 🧻`;
+      result.innerText = `ITS A DRAW`;
+      player.innerText = `PLAYER: ${playerScore}`;
+      cpu.innerText = `CPU: ${cpuScore}`;
+      break;
+
+    case playerSelection.toLowerCase() == "scissor" &&
+      computerSelection == "scissor":
+      playerChoice.innerText = `PLAYER CHOICE: ✂`;
+      cpuChoice.innerText = `CPU CHOICE: ✂`;
+      result.innerText = `ITS A DRAW`;
+      player.innerText = `PLAYER: ${playerScore}`;
       cpu.innerText = `CPU: ${cpuScore}`;
       break;
 
     // Rock win conditions
     case playerSelection.toLowerCase() == "rock" &&
       computerSelection == "scissor":
-      p.innerText = `PLAYER CHOICE: ${playerSelection}\n CPU CHOICE: ${computerSelection}\n ROCK WINS!`;
+      playerChoice.innerText = `PLAYER CHOICE: 💎`;
+      cpuChoice.innerText = `CPU CHOICE: ✂`;
+      result.innerText = `💎 WINS`;
       playerScore++;
-      player.innerText = `YOU: ${playerScore}`;
+      player.innerText = `PLAYER: ${playerScore}`;
       cpu.innerText = `CPU: ${cpuScore}`;
       break;
 
     case playerSelection.toLowerCase() == "scissor" &&
       computerSelection == "rock":
-      p.innerText = `PLAYER CHOICE: ${playerSelection}\n CPU CHOICE: ${computerSelection}\n ROCK WINS!`;
+      playerChoice.innerText = `PLAYER CHOICE: ✂`;
+      cpuChoice.innerText = `CPU CHOICE: 💎`;
+      result.innerText = `ROCK WINS`;
       cpuScore++;
-      player.innerText = `YOU: ${playerScore}`;
+      player.innerText = `PLAYER: ${playerScore}`;
       cpu.innerText = `CPU: ${cpuScore}`;
       break;
 
     // Paper win conditions
     case playerSelection.toLowerCase() == "paper" &&
       computerSelection == "rock":
-      p.innerText = `PLAYER CHOICE: ${playerSelection}\n CPU CHOICE: ${computerSelection}\n PAPER WINS`;
+      playerChoice.innerText = `PLAYER CHOICE: 🧻`;
+      cpuChoice.innerText = `CPU CHOICE: 💎`;
+      result.innerText = `🧻 WINS`;
       playerScore++;
-      player.innerText = `YOU: ${playerScore}`;
+      player.innerText = `PLAYER: ${playerScore}`;
       cpu.innerText = `CPU: ${cpuScore}`;
       break;
 
     case playerSelection.toLowerCase() == "rock" &&
       computerSelection == "paper":
-      p.innerText = `PLAYER CHOICE: ${playerSelection}\n CPU CHOICE: ${computerSelection}\n PAPER WINS`;
+      playerChoice.innerText = `PLAYER CHOICE: 💎`;
+      cpuChoice.innerText = `CPU CHOICE: 🧻`;
+      result.innerText = `🧻 WINS`;
       cpuScore++;
-      player.innerText = `YOU: ${playerScore}`;
+      player.innerText = `PLAYER: ${playerScore}`;
       cpu.innerText = `CPU: ${cpuScore}`;
       break;
 
     // Scissor win conditions
     case playerSelection.toLowerCase() == "scissor" &&
       computerSelection == "paper":
-      p.innerText = `PLAYER CHOICE: ${playerSelection}\n CPU CHOICE: ${computerSelection}\n SCISSOR WINS`;
+      playerChoice.innerText = `PLAYER CHOICE: ✂`;
+      cpuChoice.innerText = `CPU CHOICE: 🧻`;
+      result.innerText = `✂ WINS`;
       playerScore++;
-      player.innerText = `YOU: ${playerScore}`;
+      player.innerText = `PLAYER: ${playerScore}`;
       cpu.innerText = `CPU: ${cpuScore}`;
       break;
 
     case playerSelection.toLowerCase() == "paper" &&
       computerSelection == "scissor":
-      p.innerText = `PLAYER CHOICE: ${playerSelection}\n CPU CHOICE: ${computerSelection}\n SCISSOR WINS`;
+      playerChoice.innerText = `PLAYER CHOICE: 🧻`;
+      cpuChoice.innerText = `CPU CHOICE: ✂`;
+      result.innerText = `✂ WINS`;
       cpuScore++;
-      player.innerText = `YOU: ${playerScore}`;
+      player.innerText = `PLAYER: ${playerScore}`;
       cpu.innerText = `CPU: ${cpuScore}`;
       break;
   }
@@ -96,16 +127,19 @@ function playRound(playerSelection, computerSelection) {
     playerScore = 0;
     cpuScore = 0;
     endGame.innerText = "GAME OVER PLAYER WINS";
+    endGame.style.cssText = "background-color: rgb(103, 212, 216)";
   } else if (cpuScore === 5) {
     playerScore = 0;
     cpuScore = 0;
     endGame.innerText = "GAME OVER CPU WINS";
+    endGame.style.cssText = "background-color: rgb(103, 212, 216)";
   } else if (
     (playerScore === 0 && cpuScore === 0) ||
     (playerScore === 1 && cpuScore === 0) ||
     (playerScore === 0 && cpuScore === 1)
   ) {
     endGame.innerText = "";
+    endGame.style.cssText = "background-color:none";
   }
 }
 
