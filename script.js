@@ -66,11 +66,11 @@ function playRound(playerSelection, computerSelection) {
       cpuChoice.innerText = `CPU CHOICE: 🧻`;
       cpuChoice.style.cssText = "background-color: aquamarine";
       result.style.cssText = "background-color: chartreuse";
-      result.innerText = `ITS A DRAW`;
       player.innerText = `PLAYER: ${playerScore}`;
       player.style.cssText = "background-color: cyan";
       cpu.innerText = `CPU: ${cpuScore}`;
       cpu.style.cssText = "background-color: violet";
+      result.innerText = `ITS A DRAW`;
       break;
 
     case playerSelection == "scissor" && computerSelection == "scissor":
@@ -80,12 +80,12 @@ function playRound(playerSelection, computerSelection) {
       playerChoice.innerText = `PLAYER CHOICE: ✂`;
       cpuChoice.innerText = `CPU CHOICE: ✂`;
       cpuChoice.style.cssText = "background-color: aquamarine";
-      result.innerText = `ITS A DRAW`;
       result.style.cssText = "background-color: chartreuse";
       player.innerText = `PLAYER: ${playerScore}`;
       player.style.cssText = "background-color: cyan";
       cpu.innerText = `CPU: ${cpuScore}`;
       cpu.style.cssText = "background-color: violet";
+      result.innerText = `ITS A DRAW`;
       break;
 
     // Rock win conditions
@@ -112,7 +112,7 @@ function playRound(playerSelection, computerSelection) {
       playerChoice.innerText = `PLAYER CHOICE: ✂`;
       cpuChoice.innerText = `CPU CHOICE: 💎`;
       cpuChoice.style.cssText = "background-color: aquamarine";
-      result.innerText = `ROCK WINS`;
+      result.innerText = `💎 WINS`;
       result.style.cssText = "background-color: chartreuse";
       cpuScore++;
       player.innerText = `PLAYER: ${playerScore}`;
