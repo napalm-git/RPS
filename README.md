@@ -1,1 +1,1 @@
-# rock-paper-scissor
+# Basic RPS Game
